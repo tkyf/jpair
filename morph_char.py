@@ -2,7 +2,13 @@
 
 import MeCab
 
-tagger = MeCab.Tagger('-Ounidic')
+pos_index = 0
+try:
+    tagger = MeCab.Tagger('-Ochasen')
+    pos_index = 3
+except RuntimeError:
+    tagger = MeCab.Tagger('-Ounidic')
+    pos_index = 4
 
 class MorphedChar:
     """[CLASSES] 形態素解析された一つの文字を表す．
@@ -47,11 +53,12 @@ def str_to_morphed_chars(src):
         if l.startswith(u'EOS'):
             break
         feature = l.split(u'\t')
-        cs.append(MorphedChar(feature[0][0], feature[4], u'B'))
+        cs.append(MorphedChar(feature[0][0], feature[pos_index], u'B'))
+
         n = len(feature[0])
         if n > 1: #2文字以上からなる単語の場合
             for i in xrange(0, n - 1):
-                cs.append(MorphedChar(feature[0][i+1], feature[4], u'I'))
+                cs.append(MorphedChar(feature[0][i+1], feature[pos_index], u'I'))
     return cs
 
 def main():
