@@ -34,3 +34,8 @@ MeCabの辞書は[UniDic](http://download.unidic.org/)のUTF-8版のみ対応し
 -cで指定されたファイル内での表現、-cで指定されたファイル内での名詞です。
 
 ※ 出力の文字コードはUTF-8です。
+
+## LICENCE
+
+MIT
+
