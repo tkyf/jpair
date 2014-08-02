@@ -18,9 +18,6 @@ MeCabの辞書は、[IPAdic](http://mecab.googlecode.com/svn/trunk/mecab/doc/ind
 
 参考： [Windowsにmecab-pythonを導入](http://w.livedoor.jp/spz/d/Windows%A4%CBmecab-python%A4%F2%C6%B3%C6%FE)
 
-　　　[ハセテツラボ » CentOSにMeCabをインストールする方法](http://tt-house.com/2013/12/centos-mecab-install.html)
-
-
 ## インストール
 ``git clone https://github.com/tkyf/jpair.git``
 
