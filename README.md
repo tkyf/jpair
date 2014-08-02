@@ -14,9 +14,10 @@ Python の以下のバージョンで動作確認済
 ## 必要要件
 [MeCab](http://mecab.googlecode.com/svn/trunk/mecab/doc/index.html) の [Python バインディング](http://mecab.googlecode.com/svn/trunk/mecab/doc/bindings.html)が動いている環境が必要です。
 
-MeCabの辞書は[UniDic](http://download.unidic.org/)のUTF-8版のみ対応しています。
-
 参考： [Windowsにmecab-pythonを導入](http://w.livedoor.jp/spz/d/Windows%A4%CBmecab-python%A4%F2%C6%B3%C6%FE)
+
+MeCabの辞書は、[IPADdic](http://mecab.googlecode.com/svn/trunk/mecab/doc/index.html)および、[UniDic](http://download.unidic.org/)のUTF-8版に対応しています。
+
 
 ## インストール
 ``git clone https://github.com/tkyf/jpair.git``
