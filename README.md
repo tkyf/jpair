@@ -16,7 +16,7 @@ Python の以下のバージョンで動作確認済
 
 参考： [Windowsにmecab-pythonを導入](http://w.livedoor.jp/spz/d/Windows%A4%CBmecab-python%A4%F2%C6%B3%C6%FE)
 
-MeCabの辞書は、[IPADdic](http://mecab.googlecode.com/svn/trunk/mecab/doc/index.html)および、[UniDic](http://download.unidic.org/)のUTF-8版に対応しています。
+MeCabの辞書は、[IPAdic](http://mecab.googlecode.com/svn/trunk/mecab/doc/index.html)および、[UniDic](http://download.unidic.org/)のUTF-8版に対応しています。
 
 
 ## インストール
