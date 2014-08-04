@@ -13,7 +13,7 @@ import edit_distance
 
 
 def main():
-    """[FUNCTIONS] 2012/08/29
+    """[FUNCTIONS]
     品詞情報ありの差分ペアを作る。
     差分ペアは単語単位で取れる。
     """
@@ -21,14 +21,14 @@ def main():
     try: 
         import argparse
         parser = argparse.ArgumentParser(description="Extract revision pairs from Japanese text pair.")
-        parser.add_argument("-c", dest="co", help="Correction File")
-        parser.add_argument("-i", dest="ic", help="Learner File")
-        parser.add_argument("-l", dest="all", action="store_true", help="Output includes ALL word pairs.(includes Insertion, Subusutitution, Deletion and No Revision)")
-        parser.add_argument("-d", dest="distance", action="store_true", help="Get edit distacne")
-        parser.add_argument("-n", dest="nopos", action="store_true", help="Without pos")
-        parser.add_argument("-a", dest="add_tag", action="store_true", help="add tag to replaced word")
+        parser.add_argument("-c", "--co", dest="co", help="Correction File")
+        parser.add_argument("-i", "--ic", dest="ic", help="Learner File")
+        parser.add_argument("-l", "--all", dest="all", action="store_true", help="Output includes ALL word pairs.(includes Insertion, Subusutitution, Deletion and No Revision)")
+        parser.add_argument("-d", "--distance", dest="distance", action="store_true", help="Get edit distacne")
+        parser.add_argument("-n", "--nopos", dest="nopos", action="store_true", help="Without pos")
+        parser.add_argument("-a", "--addtag", dest="add_tag", action="store_true", help="add tag to replaced word")
 
-        args = parser.parse_args()
+        (args, options) = parser.parse_args()
 
     # for python 2.6
     except ImportError:
@@ -37,7 +37,7 @@ def main():
         parser.add_option("-c", "--co", dest="co", help="Correction File")
         parser.add_option("-i", "--ic", dest="ic", help="Learner File")
         parser.add_option("-l", "--all", dest="all", action="store_true", help="Output includes ALL word pairs.(includes Insertion, Subusutitution, Deletion and No Revision)")
-        parser.add_option("-d", dest="distance", action="store_true", help="Get edit distacne")
+        parser.add_option("-d", "--distance", dest="distance", action="store_true", help="Get edit distacne")
         parser.add_option("-n", "--nopos", dest="nopos", action="store_true", help="Without pos")
         parser.add_option("-a", "--addtag", dest="add_tag", action="store_true", help="add tag to replaced word")
 
