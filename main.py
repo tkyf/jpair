@@ -18,9 +18,9 @@ def main():
     差分ペアは単語単位で取れる。
     """
     import sys
-
     # for python 2.6
     import optparse
+
     parser = optparse.OptionParser(description="Extract revision pairs from Japanese text pair.")
     parser.add_option("-c", "--co", dest="co", help="Correction File")
     parser.add_option("-i", "--ic", dest="ic", help="Learner File")
@@ -185,3 +185,4 @@ def make_to_write(g_sub_list, nopos, add_tag):
 
 if __name__ == "__main__":
     main()
+
