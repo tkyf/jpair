@@ -33,7 +33,7 @@ def str_to_morphed_chars(src):
     MorphedCharのリストにして返す
 
     Keyword arguments:
-    src       -- 文字列 : unicode
+    src       -- 文字列
 
     Return value:
     [MorphedChar]
