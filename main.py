@@ -29,19 +29,19 @@ def main():
     parser.add_option("-n", "--nopos", dest="nopos", action="store_true", help="Without pos")
     parser.add_option("-a", "--addtag", dest="add_tag", action="store_true", help="add tag to replaced word")
 
-    (args, options) = parser.parse_args()
+    (opts, args) = parser.parse_args()
 
-    if not args or args.co is None or args.ic is None:
+    if not opts or opts.co is None or opts.ic is None:
         parser.print_help()
         exit(-1)
 
-    if args.distance:
-        get_distance(args.co, args.ic)
+    if opts.distance:
+        get_distance(opts.co, opts.ic)
     else:
 
-        g_sub_list = make_all_sub_list(args.co, args.ic, args.all)
+        g_sub_list = make_all_sub_list(opts.co, opts.ic, opts.all)
 
-        to_write_list = make_to_write(g_sub_list, args.nopos, args.add_tag)
+        to_write_list = make_to_write(g_sub_list, opts.nopos, opts.add_tag)
 
         for to_write in to_write_list:
             print to_write.encode('utf-8')
