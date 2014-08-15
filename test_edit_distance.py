@@ -2,6 +2,8 @@
 
 import unittest
 
+import edit_distance
+
 class TestDiffFunctions(unittest.TestCase):
     def setUp(self):
         pass
