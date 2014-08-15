@@ -31,9 +31,14 @@ def main():
 
     (opts, args) = parser.parse_args()
 
-    if not opts or opts.co is None or opts.ic is None:
+    if not opts:
         parser.print_help()
         exit(-1)
+
+    if  opts.co is None or opts.ic is None:
+        parser.print_help()
+        exit(-1)
+
 
     if opts.distance:
         get_distance(opts.co, opts.ic)
