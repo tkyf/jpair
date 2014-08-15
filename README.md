@@ -23,6 +23,8 @@ MeCabの辞書は、[IPAdic](http://mecab.googlecode.com/svn/trunk/mecab/doc/ind
 
 ## 実行例
 
+main.pyに2つの文を指定して実行します。
+
     $ python main.py -i incorrection.txt -c correction.txt
     1       こにちわ        こんにちは 感動詞-一般
     1       わちし  わたし 代名詞
