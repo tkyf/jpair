@@ -4,10 +4,12 @@ import unittest
 
 import edit_distance
 
-class TestDiffFunctions(unittest.TestCase):
+class Test(unittest.TestCase):
     def setUp(self):
-        pass
+        self.ed = edit_distance.EditDistance(is_test=True)
 
+    def testEditdistance(self):
+        pass
 
 
 if __name__ == '__main__':
