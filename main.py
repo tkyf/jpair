@@ -53,7 +53,7 @@ def main():
 
 
 def get_distance(co, ic):
-    ed = edit_distance.EditDistance(is_test=True)
+    ed = edit_distance.EditDistance()
     with nested(codecs.open(co, 'r', 'utf-8'), codecs.open(ic, 'r', 'utf-8')) as (corrs, incors):
         for row, (corr, incor) in enumerate(zip(corrs, incors)):
             corr = corr.strip().replace(u' ', '').replace(u'　', '')
