@@ -13,7 +13,8 @@ class Test(unittest.TestCase):
         self.incor.append(u"こにちわ。わちしはげんきでした。")
 
     def test_sub(self):
-        pass
+        expects = [("こんにちは", "こにちわ", "感動詞"),("わたし","わちし", "名詞-代名詞-一般"),
+                ("です", "でした", "助動詞")]
 
     def test_editdistance(self):
         d = self.ed.shortest_edit_script(self.incor[0], self.corr[0])  
