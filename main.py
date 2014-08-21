@@ -119,47 +119,48 @@ def make_all_sub_list(co, ic, all=False):
 
     return g_sub_list
 
+def morphed_char_joining(morphed_char_list, nopos):
+    """[FUNCTIONS] MorphedCharとして別の文字にわかれてる単語をくっつける。
+    ここでの返り値の MorphedChar には、単語を返す場合、複数の文字が入る。
+
+    Return value:
+    morphed_word_list :: [MorphedChar]
+    """
+    # 削除操作の場合
+    if morphed_char_list == []:
+        return []
+
+    morphed_word_list = []
+
+    # 下のfor文内で、一つ前までに出てきた文字列(MorphedChar)を表す。
+    # 次に出てきた文字のpositionがIだったらくっつける。という操作の判定に使う
+    latest_word = None
+
+    for mc in morphed_char_list:
+        if latest_word is None:
+            latest_word = mc
+        else:
+            if mc.position == 'B':
+                if nopos:
+                    s = u"%s" % (latest_word.surface)
+                else:
+                    s = u"%s %s" % (latest_word.surface,
+                            latest_word.pos)
+                morphed_word_list.append(s)
+                latest_word = mc
+            elif mc.position == 'I':
+                latest_word.surface += mc.surface
+    if nopos:
+        s = u"%s" % (latest_word.surface)
+    else:
+        s = u"%s %s" % (latest_word.surface,
+                latest_word.pos)
+    morphed_word_list.append(s)
+    return morphed_word_list
+
+
 
 def make_to_write(g_sub_list, nopos, add_tag):
-
-    def morphed_char_joining(morphed_char_list):
-        """[FUNCTIONS] MorphedCharとして別の文字にわかれてる単語をくっつける。
-        ここでの返り値の MorphedChar には、単語を返す場合、複数の文字が入る。
-
-        Return value:
-        morphed_word_list :: [MorphedChar]
-        """
-        # 削除操作の場合
-        if morphed_char_list == []:
-            return []
-
-        morphed_word_list = []
-
-        # 下のfor文内で、一つ前までに出てきた文字列(MorphedChar)を表す。
-        # 次に出てきた文字のpositionがIだったらくっつける。という操作の判定に使う
-        latest_word = None
-
-        for mc in morphed_char_list:
-            if latest_word is None:
-                latest_word = mc
-            else:
-                if mc.position == 'B':
-                    if nopos:
-                        s = u"%s" % (latest_word.surface)
-                    else:
-                        s = u"%s %s" % (latest_word.surface,
-                             latest_word.pos)
-                    morphed_word_list.append(s)
-                    latest_word = mc
-                elif mc.position == 'I':
-                    latest_word.surface += mc.surface
-        if nopos:
-            s = u"%s" % (latest_word.surface)
-        else:
-            s = u"%s %s" % (latest_word.surface,
-                    latest_word.pos)
-        morphed_word_list.append(s)
-        return morphed_word_list
 
     splitter = u'\t'
 
@@ -173,7 +174,7 @@ def make_to_write(g_sub_list, nopos, add_tag):
         for sub in dup_sub_list[:-1]:
 
             morphed_char_list = sub[1]
-            morphed_word_list = morphed_char_joining(morphed_char_list)
+            morphed_word_list = morphed_char_joining(morphed_char_list, nopos)
 
             after_word = u' '.join(morphed_word_list)
             before_word = sub[0]
