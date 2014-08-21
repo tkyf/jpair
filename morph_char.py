@@ -22,6 +22,10 @@ class MorphedChar:
         pos     -- surface of word      : unicode
         position -- position of charactor in word. :unicode 
                     B: begin of word. I: inter of word.
+
+        例： surface  : 人
+             pos      : 名詞
+             position : B 
         """
 
         self.surface = surface

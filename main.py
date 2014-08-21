@@ -120,8 +120,8 @@ def make_all_sub_list(co, ic, all=False):
     return g_sub_list
 
 def morphed_char_joining(morphed_char_list, nopos):
-    """[FUNCTIONS] MorphedCharとして別の文字にわかれてる単語をくっつける。
-    ここでの返り値の MorphedChar には、単語を返す場合、複数の文字が入る。
+    """[FUNCTIONS] 文字単位のMorphedCharのリストを単語単位に結合する。
+    結合の基準として、MorphedCharのpositionアトリビュートを使用する。
 
     Return value:
     morphed_word_list :: [MorphedChar]
