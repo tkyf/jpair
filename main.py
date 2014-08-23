@@ -1,10 +1,13 @@
 ﻿# coding: utf-8
 
+from __future__ import print_function
+
 import codecs
 import glob
 import os
 import os.path
 import copy
+
 
 # for python 2.6
 from contextlib import nested
@@ -49,7 +52,7 @@ def main():
         to_write_list = make_to_write(g_sub_list, opts.nopos, opts.add_tag)
 
         for to_write in to_write_list:
-            print to_write.encode('utf-8')
+            print(to_write.encode('utf-8'))
 
 
 def get_distance(co, ic):
@@ -59,7 +62,7 @@ def get_distance(co, ic):
             corr = corr.strip().replace(u' ', '').replace(u'　', '')
             incor = incor.strip().replace(u' ', '').replace(u'　', '')   
             distance = ed.shortest_edit_script(incor, corr)
-            print row, distance
+            print(row, distance)
 
 def make_all_sub_list(co, ic, all=False):
     """[FUNCTIONS]ファイルオープン、差分作成を行う。
@@ -115,7 +118,7 @@ def make_all_sub_list(co, ic, all=False):
             g_sub_list.append(sub_list)
 
             if row != 0 and row % 10000 == 0:
-                print >>sys.stderr, 'row:' + str(row)
+                print('row:' + str(row), file=sys.stderr)
 
     return g_sub_list
 
@@ -126,8 +129,8 @@ def morphed_char_joining(morphed_char_list, nopos):
     Return value:
     morphed_word_list :: [MorphedChar]
     """
-    # 削除操作の場合
-    if morphed_char_list == []:
+
+    if not morphed_char_list:
         return []
 
     morphed_word_list = []
