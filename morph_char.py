@@ -1,4 +1,5 @@
 #encoding: utf-8
+from __future__ import print_function
 
 import MeCab
 
@@ -67,10 +68,10 @@ def str_to_morphed_chars(src):
 
 def main():
     src = u'庭には二羽にわとりがいる'
-    print src
+    print(src)
     morphed_chars = str_to_morphed_chars(src)
     for morphed_char in morphed_chars:
-        print morphed_char.surface.encode('cp932') , morphed_char.pos.encode('cp932') , morphed_char.position.encode('cp932') 
+        print(morphed_char.surface.encode('cp932') , morphed_char.pos.encode('cp932') , morphed_char.position.encode('cp932'))
 
 
 if __name__ == "__main__":
