@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 
 # 編集タグ
 eq_tag =  '.'
@@ -48,19 +49,19 @@ class EditDistance(object):
                 m[i][j] = min(m[i-1][j] + 1, m[i][j - 1] + 1, m[i - 1][j - 1] + x)
 
         if self.is_test:
-            print ', '.join(' ' + dst)
+            print(', '.join(' ' + dst))
             for s, l in zip(' ' + src, m):
-                print s, l
-            print ""
+                print(s, l)
+            print("")
 
-            print 'len(src) = ' + str(len(src))
-            print 'i = ' + str(i) # i, jは最後の値になっていることを確認
-            print 'len(dst) = ' + str(len(dst))
-            print 'j = ' + str(j)
-            print '[i][j] = ' + str(m[i][j])
+            print('len(src) = ' + str(len(src)))
+            print('i = ' + str(i))# i, jは最後の値になっていることを確認
+            print('len(dst) = ' + str(len(dst)))
+            print('j = ' + str(j))
+            print('[i][j] = ' + str(m[i][j]))
 
-            print 'len(m) = ' + str(len(m))
-            print 'len(m[0]) = ' + str(len(m[0]))
+            print('len(m) = ' + str(len(m)))
+            print('len(m[0]) = ' + str(len(m[0])))
 
         return m
 
@@ -148,8 +149,8 @@ class EditDistance(object):
                 src_str += src[src_index]
                 dst_str += dst[dst_index]
                 if self.is_test:
-                    print 'eq  :' + src[src_index] + '->' \
-                          + dst[dst_index] + '(' + str(dst_index) + ')'
+                    print('eq  :' + src[src_index] + '->' \
+                          + dst[dst_index] + '(' + str(dst_index) + ')')
                 src_index += 1
                 dst_index += 1
             elif e == 'add':
@@ -157,33 +158,33 @@ class EditDistance(object):
                 src_str += u'＿'
                 dst_str += dst[dst_index]
                 if self.is_test:
-                    print 'add :' + u'＿' + '->' + dst[dst_index] \
-                          + '(' + str(dst_index) + ')'
+                    print('add :' + u'＿' + '->' + dst[dst_index] \
+                          + '(' + str(dst_index) + ')')
                 dst_index += 1
             elif e == 'del':
                 tag_str += del_tag
                 src_str+= src[src_index]
                 dst_str += u'＿'
                 if self.is_test:
-                    print 'del :' + src[src_index] + '->' \
-                          + u'＿' + '(' + str(dst_index) + ')'
+                    print('del :' + src[src_index] + '->' \
+                          + u'＿' + '(' + str(dst_index) + ')')
                 src_index += 1
             elif e == 'sub':
                 tag_str += sub_tag
                 src_str += src[src_index]
                 dst_str += dst[dst_index]
                 if self.is_test:
-                    print 'sub :' + src[src_index] + '->' \
-                          + dst[dst_index] + '(' + str(dst_index) + ')'
+                    print('sub :' + src[src_index] + '->' \
+                          + dst[dst_index] + '(' + str(dst_index) + ')')
                 src_index += 1
                 dst_index += 1
             else:
-                print 'this tag is not defiened'
+                print('this tag is not defiened')
 
         if self.is_test:
-             print tag_str
-             print src_str
-             print dst_str
+             print(tag_str)
+             print(src_str)
+             print(dst_str)
         
         return (tag_str, src_str, dst_str)
 
