@@ -3,13 +3,6 @@
 
 from __future__ import print_function
 
-import codecs
-import glob
-import os
-import os.path
-import copy
-
-
 # for python 2.6
 from contextlib import nested
 
