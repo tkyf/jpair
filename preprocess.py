@@ -1,21 +1,21 @@
 # coding: utf-8
 
 from __future__ import print_function
-
 import codecs
-
 # for python 2.6
 from contextlib import nested
 
 import edit_distance
 
+def remove_spaces(string):
+    return string.strip().replace(u' ', '').replace(u'　', '')
 
 def get_distance(co, ic):
     ed = edit_distance.EditDistance()
     with nested(codecs.open(co, 'r', 'utf-8'), codecs.open(ic, 'r', 'utf-8')) as (corrs, incors):
         for row, (corr, incor) in enumerate(zip(corrs, incors)):
-            corr = corr.strip().replace(u' ', '').replace(u'　', '')
-            incor = incor.strip().replace(u' ', '').replace(u'　', '')   
+            corr = remove_spaces(corr)
+            incor = remove_spaces(incor)
             distance = ed.shortest_edit_script(incor, corr)
             print(row, distance)
 
@@ -51,8 +51,8 @@ def make_all_sub_list(co, ic, all=False):
 
     with nested(codecs.open(co, 'r', 'utf-8'), codecs.open(ic, 'r', 'utf-8')) as (corrs, incors):
         for row, (corr, incor) in enumerate(zip(corrs, incors)):
-            corr = corr.strip().replace(u' ', '').replace(u'　', '')
-            incor = incor.strip().replace(u' ', '').replace(u'　', '')
+            corr = remove_spaces(corr)
+            incor = remove_spaces(incor)
 
             sub_list = ed.word_sub_extract(incor, corr)
 
