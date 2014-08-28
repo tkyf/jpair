@@ -1,13 +1,7 @@
 # coding: utf-8
 
 from __future__ import print_function
-
 import copy
-
-# for python 2.6
-from contextlib import nested
-
-import edit_distance
 
 def morphed_char_joining(morphed_char_list, nopos):
     """[FUNCTIONS] 文字単位のMorphedCharのリストを単語単位に結合する。
