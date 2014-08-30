@@ -201,7 +201,7 @@ class EditDistance(object):
                 morphed_chars.insert(i, morph_char.MorphedChar(u'＿', u'X', u'X'))
 
 
-    def word_sub_extract(self, src, dst):
+    def extract_word_sub(self, src, dst):
         """[FUNCTIONS] 二つの文の置換された箇所のペアのリストを作る。
         そのとき、挿入された側を単語単位で抜き出すよう整形する。
 
