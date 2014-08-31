@@ -45,8 +45,6 @@ def make_all_sub_list(co, ic, all=False):
         """
         return not bool(sub[0])
 
-    import sys
-
     g_sub_list = []
     ed = edit_distance.EditDistance()
 
