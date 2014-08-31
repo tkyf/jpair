@@ -37,13 +37,11 @@ def main():
         parser.print_help()
         exit(-1)
 
-
+    # 処理が編集距離の場合 
     if opts.distance:
         preprocess.get_distance(opts.co, opts.ic)
     else:
-
         g_sub_list = preprocess.make_all_sub_list(opts.co, opts.ic, opts.all)
-
         to_write_list = postprocess.make_to_write(g_sub_list, opts.nopos, opts.add_tag)
 
         for to_write in to_write_list:
