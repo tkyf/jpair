@@ -34,6 +34,7 @@ def make_all_sub_list(co, ic, all=False):
         if sub[1]:
             for morphedchar in sub[1]:
                 after += morphedchar.surface
+
         if sub[0] or after:
             return sub[0] != after
         return False
@@ -44,8 +45,6 @@ def make_all_sub_list(co, ic, all=False):
         """
         return not bool(sub[0])
 
-    import sys
-
     g_sub_list = []
     ed = edit_distance.EditDistance()
 
@@ -54,7 +53,7 @@ def make_all_sub_list(co, ic, all=False):
             corr = remove_spaces(corr)
             incor = remove_spaces(incor)
 
-            sub_list = ed.word_sub_extract(incor, corr)
+            sub_list = ed.extract_word_sub(incor, corr)
 
             if sub_list is None:
                 continue

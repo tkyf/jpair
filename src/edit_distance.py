@@ -2,10 +2,10 @@
 from __future__ import print_function
 
 # 編集タグ
-eq_tag =  '.'
-add_tag = '+'
+EQ_TAG =  '.'
+ADD_TAG = '+'
 del_tag = '-'
-sub_tag = '/'
+SUB_TAG = '/'
 
 class EditDistance(object):
 
@@ -145,7 +145,7 @@ class EditDistance(object):
         dst_str = u''
         for i, e in enumerate(edit_trail):
             if e == 'eq':
-                tag_str += eq_tag
+                tag_str += EQ_TAG
                 src_str += src[src_index]
                 dst_str += dst[dst_index]
                 if self.is_test:
@@ -154,7 +154,7 @@ class EditDistance(object):
                 src_index += 1
                 dst_index += 1
             elif e == 'add':
-                tag_str += add_tag
+                tag_str += ADD_TAG
                 src_str += u'＿'
                 dst_str += dst[dst_index]
                 if self.is_test:
@@ -170,7 +170,7 @@ class EditDistance(object):
                           + u'＿' + '(' + str(dst_index) + ')')
                 src_index += 1
             elif e == 'sub':
-                tag_str += sub_tag
+                tag_str += SUB_TAG
                 src_str += src[src_index]
                 dst_str += dst[dst_index]
                 if self.is_test:
@@ -201,7 +201,7 @@ class EditDistance(object):
                 morphed_chars.insert(i, morph_char.MorphedChar(u'＿', u'X', u'X'))
 
 
-    def word_sub_extract(self, src, dst):
+    def extract_word_sub(self, src, dst):
         """[FUNCTIONS] 二つの文の置換された箇所のペアのリストを作る。
         そのとき、挿入された側を単語単位で抜き出すよう整形する。
 
@@ -232,7 +232,7 @@ class EditDistance(object):
                                           dst_morphed_chars)):
             if in_word:
                 if d.position == u'B':
-                    if t == add_tag and tag_str[i-1] != eq_tag:
+                    if t == ADD_TAG and tag_str[i-1] != EQ_TAG:
                         pass
                     else:
                         word_end   = i
